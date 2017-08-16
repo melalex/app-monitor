@@ -3,7 +3,7 @@ package com.appmonitor.webservice.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -40,9 +40,8 @@ public class Application {
     @Column(name = "installs_count")
     private int installsCount;
 
-    @ElementCollection
-    @CollectionTable(name = "installed_ips", joinColumns = @JoinColumn(name = "package_name"))
-    private List<String> installedIps;
+    @OneToMany(targetEntity = InstalledIp.class)
+    private Set<InstalledIp> installedIps;
 
     @Column(name = "installed_ips_status")
     private boolean installedIpsStatus;
