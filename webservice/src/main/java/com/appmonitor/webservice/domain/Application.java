@@ -14,6 +14,9 @@ public class Application {
     @Column(name = "package_name")
     private String packageName;
 
+    @Column(length = 500)
+    private String notes;
+
     @Column(name = "game_url")
     private String gameUrl;
 
@@ -34,15 +37,12 @@ public class Application {
 
     private boolean status;
 
-    @Column(length = 500)
-    private String notes;
-
-    @Column(name = "installs_count")
-    private int installsCount;
+    @Column(name = "installed_ips_status")
+    private boolean installedIpsStatus;
 
     @OneToMany(targetEntity = Install.class)
     private Set<Install> installs;
 
-    @Column(name = "installed_ips_status")
-    private boolean installedIpsStatus;
+    @Column(name = "installs_count")
+    private int installsCount;
 }

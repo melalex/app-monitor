@@ -24,6 +24,7 @@ repositories {
 
 ext {
     modelMapperVersion = '1.1.0'
+    beanutilsVersion = '1.9.3'
 }
 
 dependencies {
@@ -37,6 +38,7 @@ dependencies {
     compile('org.springframework.data:spring-data-rest-hal-browser')
 
     compile("org.modelmapper:modelmapper:${modelMapperVersion}")
+    compile("commons-beanutils:commons-beanutils:${beanutilsVersion}")
 
     runtime('org.springframework.boot:spring-boot-devtools')
 
