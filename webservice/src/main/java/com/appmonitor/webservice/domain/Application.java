@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "application_information")
-public class ApplicationInformation {
+public class Application {
 
     @Id
     @Column(name = "package_name")
