@@ -6,13 +6,13 @@ import javax.persistence.*;
 
 @Data
 @Entity
-public class InstalledIp {
+public class Install {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "ip_address", length = 40, unique = true)
+    @Column(name = "ip_address", length = 40)
     private String ipAddress;
 
     @JoinColumn(name = "package_name")

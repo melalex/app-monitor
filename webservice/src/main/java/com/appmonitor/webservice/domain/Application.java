@@ -40,8 +40,8 @@ public class Application {
     @Column(name = "installs_count")
     private int installsCount;
 
-    @OneToMany(targetEntity = InstalledIp.class)
-    private Set<InstalledIp> installedIps;
+    @OneToMany(targetEntity = Install.class)
+    private Set<Install> installs;
 
     @Column(name = "installed_ips_status")
     private boolean installedIpsStatus;
