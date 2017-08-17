@@ -1,4 +1,4 @@
-package com.appmonitor.webservice.dto;
+package com.appmonitor.webservice.forms;
 
 import com.appmonitor.webservice.constraints.FieldMatch;
 import com.appmonitor.webservice.constraints.HardPassword;

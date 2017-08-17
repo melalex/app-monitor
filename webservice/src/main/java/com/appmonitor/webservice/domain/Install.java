@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
+@Table(name = "install")
 public class Install implements Serializable {
     private static final long serialVersionUID = -4815129180851966083L;
 
@@ -14,10 +15,10 @@ public class Install implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "ip_address", length = 40)
+    @Column(name = "ip_address", length = 40, nullable = false)
     private String ipAddress;
 
-    @JoinColumn(name = "package_name")
+    @JoinColumn(name = "application_id")
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private Application application;
 }

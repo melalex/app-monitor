@@ -8,8 +8,10 @@ import java.io.Serializable;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ApplicatioResource extends ResourceSupport implements Serializable {
+public class ApplicationResource extends ResourceSupport implements Serializable {
     private static final long serialVersionUID = 8918421299883853589L;
+
+    private long id;
 
     private String packageName;
     private String notes;

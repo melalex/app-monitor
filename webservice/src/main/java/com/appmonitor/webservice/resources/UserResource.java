@@ -11,6 +11,7 @@ import java.io.Serializable;
 public class UserResource extends ResourceSupport implements Serializable {
     private static final long serialVersionUID = 8900534006939767889L;
 
+    private long id;
     private String login;
     private String password;
 }

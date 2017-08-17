@@ -8,38 +8,45 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "application_information")
+@Table(
+        name = "application_information",
+        indexes = @Index(name = "idx_package_name", columnList = "package_name", unique = true)
+)
 public class Application implements Serializable {
     private static final long serialVersionUID = -5035374505612058327L;
 
     @Id
-    @Column(name = "package_name")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "package_name", nullable = false, unique = true)
     private String packageName;
 
     @Column(length = 500)
     private String notes;
 
-    @Column(name = "game_url")
+    @Column(name = "game_url", nullable = false)
     private String gameUrl;
 
-    @Column(name = "hook_url")
+    @Column(name = "hook_url", nullable = false)
     private String hookUrl;
 
-    @Column(name = "image_url")
+    @Column(name = "image_url", nullable = false)
     private String imageUrl;
 
-    @Column(name = "image_url")
+    @Column(name = "windows_server_url", nullable = false)
     private String windowsServerUrl;
 
-    @Column(name = "image_url")
+    @Column(name = "windows_server_login", nullable = false)
     private String windowsServerLogin;
 
-    @Column(name = "image_url")
+    @Column(name = "windows_server_password", nullable = false)
     private String windowsServerPassword;
 
+    @Column(nullable = false)
     private boolean status;
 
-    @Column(name = "installed_ips_status")
+    @Column(name = "installed_ips_status", nullable = false)
     private boolean installedIpsStatus;
 
     @OneToMany(targetEntity = Install.class)
