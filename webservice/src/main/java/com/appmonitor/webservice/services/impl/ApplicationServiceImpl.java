@@ -4,6 +4,7 @@ import com.appmonitor.webservice.domain.Application;
 import com.appmonitor.webservice.domain.Install;
 import com.appmonitor.webservice.dto.ApplicationDto;
 import com.appmonitor.webservice.dto.InstallDto;
+import com.appmonitor.webservice.forms.ApplicationForm;
 import com.appmonitor.webservice.repositories.ApplicationRepository;
 import com.appmonitor.webservice.repositories.InstallRepository;
 import com.appmonitor.webservice.services.ApplicationService;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @Transactional
@@ -44,9 +46,9 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public ApplicationDto create(ApplicationDto applicationDto) {
-        Application application = modelMapper.map(applicationDto, Application.class);
-        populateImageUrl(applicationDto, application);
+    public ApplicationDto create(ApplicationForm applicationForm) {
+        Application application = modelMapper.map(applicationForm, Application.class);
+        populateImageUrl(applicationForm, application);
 
         application = applicationRepository.save(application);
 
@@ -85,11 +87,12 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public void update(long id, ApplicationDto applicationDto) {
-        Application application = modelMapper.map(applicationDto, Application.class);
+    public void update(long id, ApplicationForm applicationForm) {
+        Application application = modelMapper.map(applicationForm, Application.class);
         application.setId(id);
 
-        populateImageUrl(applicationDto, application);
+        populateWithOldImageUrl(id, application);
+        populateImageUrl(applicationForm, application);
 
         applicationRepository.save(application);
     }
@@ -127,8 +130,24 @@ public class ApplicationServiceImpl implements ApplicationService {
         return installRepository.countByApplicationAndIpAddress(application, ipAddress) <= 0;
     }
 
-    private void populateImageUrl(ApplicationDto applicationDto, Application application) {
-        String imageUrl = fileStorageService.storeFile(applicationDto.getImage());
+    private void populateImageUrl(ApplicationForm applicationForm, Application application) {
+        MultipartFile image = applicationForm.getImage();
+        String imageUrl = null;
+
+        if (image != null) {
+            imageUrl = fileStorageService.storeFile(applicationForm.getImage());
+        }
+
+        application.setImageUrl(imageUrl);
+    }
+
+    private void populateWithOldImageUrl(long id, Application application) {
+        Application oldApplication = applicationRepository.findOne(id);
+        String imageUrl = null;
+
+        if (oldApplication != null) {
+            imageUrl = oldApplication.getImageUrl();
+        }
 
         application.setImageUrl(imageUrl);
     }

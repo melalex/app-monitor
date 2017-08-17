@@ -2,12 +2,13 @@ package com.appmonitor.webservice.services;
 
 import com.appmonitor.webservice.dto.ApplicationDto;
 import com.appmonitor.webservice.dto.InstallDto;
+import com.appmonitor.webservice.forms.ApplicationForm;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface ApplicationService {
 
-    ApplicationDto create(ApplicationDto applicationDto);
+    ApplicationDto create(ApplicationForm applicationForm);
 
     ApplicationDto find(long id);
 
@@ -17,7 +18,7 @@ public interface ApplicationService {
 
     Page<ApplicationDto> findByPackageNameStartWith(String packageName, Pageable pageable);
 
-    void update(long id, ApplicationDto applicationDto);
+    void update(long id, ApplicationForm applicationForm);
 
     void installApplication(String packageName, String ipAddress);
 
