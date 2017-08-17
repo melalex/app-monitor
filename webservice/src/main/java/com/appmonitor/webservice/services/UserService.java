@@ -13,7 +13,5 @@ public interface UserService {
 
     Page<UserDto> findAll(Pageable pageable);
 
-    Page<UserDto> findByPackageName(String packageName, Pageable pageable);
-
     void update(long id, UserForm user);
 }
