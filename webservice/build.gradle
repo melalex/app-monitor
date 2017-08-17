@@ -23,6 +23,8 @@ repositories {
 }
 
 ext {
+    guavaVersion = '22.0'
+    apacheCommonsVersion = '3.6'
     modelMapperVersion = '1.1.0'
     beanutilsVersion = '1.9.3'
 }
@@ -39,6 +41,8 @@ dependencies {
 
     compile("org.modelmapper:modelmapper:${modelMapperVersion}")
     compile("commons-beanutils:commons-beanutils:${beanutilsVersion}")
+    compile("com.google.guava:guava:${guavaVersion}")
+    compile("org.apache.commons:commons-lang3:${apacheCommonsVersion}")
 
     runtime('org.springframework.boot:spring-boot-devtools')
 
