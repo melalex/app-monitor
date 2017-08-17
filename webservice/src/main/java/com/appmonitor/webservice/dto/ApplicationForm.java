@@ -7,9 +7,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @Data
-public class ApplicationForm {
+public class ApplicationForm implements Serializable {
+    private static final long serialVersionUID = -4613918053380822712L;
 
     @NotNull
     @Size(min = 6, max = 255)

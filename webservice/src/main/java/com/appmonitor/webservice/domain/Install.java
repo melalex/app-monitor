@@ -3,10 +3,12 @@ package com.appmonitor.webservice.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
-public class Install {
+public class Install implements Serializable {
+    private static final long serialVersionUID = -4815129180851966083L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -3,12 +3,14 @@ package com.appmonitor.webservice.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 @Data
 @Entity
 @Table(name = "application_information")
-public class Application {
+public class Application implements Serializable {
+    private static final long serialVersionUID = -5035374505612058327L;
 
     @Id
     @Column(name = "package_name")
