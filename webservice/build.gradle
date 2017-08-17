@@ -27,22 +27,25 @@ ext {
     apacheCommonsVersion = '3.6'
     modelMapperVersion = '1.1.0'
     beanutilsVersion = '1.9.3'
+    evoVersion = '1.2.2'
 }
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-actuator')
-    compile('org.springframework.boot:spring-boot-actuator-docs')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-hateoas')
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-validation')
     compile('org.springframework.boot:spring-boot-starter-web')
+
+    compile('org.springframework.boot:spring-boot-actuator-docs')
     compile('org.springframework.data:spring-data-rest-hal-browser')
 
     compile("org.modelmapper:modelmapper:${modelMapperVersion}")
     compile("commons-beanutils:commons-beanutils:${beanutilsVersion}")
     compile("com.google.guava:guava:${guavaVersion}")
     compile("org.apache.commons:commons-lang3:${apacheCommonsVersion}")
+    compile("org.atteo:evo-inflector:${evoVersion}")
 
     runtime('org.springframework.boot:spring-boot-devtools')
 
