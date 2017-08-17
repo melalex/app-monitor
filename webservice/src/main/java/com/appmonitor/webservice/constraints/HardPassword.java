@@ -9,6 +9,7 @@ import java.lang.annotation.*;
 @Documented
 @NotNull
 @Size(min = 6, max = 255)
+@AtLeastOneDigit
 @AtLeastOneLowerCaseLatter
 @AtLeastOneUpperCaseLatter
 @AtLeastOneSpecialCharacter

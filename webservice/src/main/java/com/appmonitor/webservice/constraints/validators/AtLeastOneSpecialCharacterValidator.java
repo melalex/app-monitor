@@ -7,7 +7,7 @@ import javax.validation.ConstraintValidatorContext;
 import java.util.regex.Pattern;
 
 public class AtLeastOneSpecialCharacterValidator implements ConstraintValidator<AtLeastOneSpecialCharacter, String> {
-    private static final String regExp = "(?=.*[0-9])";
+    private static final String regExp = "(?=.*[@#$%^&+=])";
     private static final Pattern pattern = Pattern.compile(regExp);
 
     @Override

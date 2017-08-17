@@ -7,7 +7,7 @@ import javax.validation.ConstraintValidatorContext;
 import java.util.regex.Pattern;
 
 public class AtLeastOneUpperCaseLatterValidator implements ConstraintValidator<AtLeastOneUpperCaseLatter, String> {
-    private static final String regExp = "(?=.*[0-9])";
+    private static final String regExp = "(?=.*[A-Z])";
     private static final Pattern pattern = Pattern.compile(regExp);
 
     @Override
