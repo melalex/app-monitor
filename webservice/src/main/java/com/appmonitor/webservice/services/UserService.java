@@ -1,19 +1,19 @@
 package com.appmonitor.webservice.services;
 
+import com.appmonitor.webservice.dto.UserDto;
 import com.appmonitor.webservice.forms.UserForm;
-import com.appmonitor.webservice.resources.UserResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface UserService {
 
-    UserResource create(UserForm user);
+    UserDto create(UserForm user);
 
-    UserResource find(long id);
+    UserDto find(long id);
 
-    Page<UserResource> findAll(Pageable pageable);
+    Page<UserDto> findAll(Pageable pageable);
 
-    Page<UserResource> findByPackageName(String packageName, Pageable pageable);
+    Page<UserDto> findByPackageName(String packageName, Pageable pageable);
 
-    void update(UserForm user);
+    void update(long id, UserForm user);
 }

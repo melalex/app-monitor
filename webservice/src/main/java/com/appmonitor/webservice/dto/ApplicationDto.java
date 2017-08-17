@@ -1,4 +1,4 @@
-package com.appmonitor.webservice.forms;
+package com.appmonitor.webservice.dto;
 
 import com.appmonitor.webservice.constraints.Image;
 import lombok.Data;
@@ -10,8 +10,10 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Data
-public class ApplicationForm implements Serializable {
-    private static final long serialVersionUID = -4613918053380822712L;
+public class ApplicationDto implements Serializable {
+    private static final long serialVersionUID = -8502462263686068654L;
+
+    private long id;
 
     @NotNull
     @Size(min = 6, max = 255)
@@ -49,4 +51,6 @@ public class ApplicationForm implements Serializable {
 
     private boolean status;
     private boolean installedIpsStatus;
+
+    private int installsCount;
 }

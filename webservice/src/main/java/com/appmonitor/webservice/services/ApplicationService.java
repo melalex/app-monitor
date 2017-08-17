@@ -1,19 +1,18 @@
 package com.appmonitor.webservice.services;
 
-import com.appmonitor.webservice.forms.ApplicationForm;
-import com.appmonitor.webservice.resources.ApplicationResource;
+import com.appmonitor.webservice.dto.ApplicationDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface ApplicationService {
 
-    ApplicationResource create(ApplicationForm application);
+    ApplicationDto create(ApplicationDto applicationDto);
 
-    ApplicationResource find(long id);
+    ApplicationDto find(long id);
 
-    Page<ApplicationResource> findAll(Pageable pageable);
+    Page<ApplicationDto> findAll(Pageable pageable);
 
-    Page<ApplicationResource> findByPackageName(String packageName, Pageable pageable);
+    Page<ApplicationDto> findByPackageName(String packageName, Pageable pageable);
 
-    void update(ApplicationForm application);
+    void update(long id, ApplicationDto applicationDto);
 }
